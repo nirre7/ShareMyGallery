@@ -20,13 +20,15 @@ export const MyGalleryScreen: React.FunctionComponent<MyGalleryScreenProps> = ob
 
   useEffect(() => {
     CameraRoll.getPhotos({
-      first: 25,
+      first: 1000,
       assetType: "All",
       groupTypes: "All",
+      groupName: "Camera"
     })
       .then((media) => {
         setMedia(media.edges)
         console.tron.debug(`Fetched ${media.edges.length} photos`)
+        // console.tron.debug(media.edges)
       })
   }, [])
 
