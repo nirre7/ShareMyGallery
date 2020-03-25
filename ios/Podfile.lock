@@ -235,6 +235,8 @@ PODS:
     - React
   - RNScreens (2.4.0):
     - React
+  - RNShare (3.1.2):
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -274,6 +276,7 @@ DEPENDENCIES:
   - RNKeychain (from `../node_modules/react-native-keychain`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNShare (from `../node_modules/react-native-share`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -347,6 +350,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-localize"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNShare:
+    :path: "../node_modules/react-native-share"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -385,6 +390,7 @@ SPEC CHECKSUMS:
   RNKeychain: a5623de13ec5378bfb8035422e3dee4fa538660d
   RNLocalize: 215c419a17d7585eb7a63c748ebfd042e0cb2c3d
   RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
+  RNShare: c19dbe4a7224098cd3cfc4d3b92c886ca817b3f0
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: f7b58ffd00e307a8bd40dfaa9e12c560bcfd3059
