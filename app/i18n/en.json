@@ -12,6 +12,10 @@
     "readyForLaunch": "Ready for launch.",
     "continue": "CONTINUE"
   },
+  "shareButton": {
+    "share": "Share",
+    "shareMultipleImages": "Share multiple images"
+  },
   "demoScreen": {
     "howTo": "HOW TO",
     "title": "What’s In This Stack?",
