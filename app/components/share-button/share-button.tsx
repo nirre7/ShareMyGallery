@@ -14,12 +14,17 @@ export const ShareButton: React.FunctionComponent<ShareButtonProps> = props => {
   const { selectedMedia } = props
 
   const openShare = () => {
-    console.tron.debug([...selectedMedia.keys()])
+    const urls = []
+    selectedMedia.forEach((value, key, map) => {
+      if (value) {
+        urls.push(key)
+      }
+    })
 
     Share.open({
       title: translate("shareButton.shareMultipleImages"),
       failOnCancel: false,
-      urls: [...selectedMedia.keys()],
+      urls: urls,
       social: Share.Social.EMAIL,
     }).catch((error) => console.tron.warn(error))
   }
@@ -28,7 +33,6 @@ export const ShareButton: React.FunctionComponent<ShareButtonProps> = props => {
     <View style={styles.WRAPPER}>
       <Button
         onPress={openShare}
-        disabled={[...selectedMedia.keys()].length === 0}
         title={translate("shareButton.share")}
       />
     </View>
