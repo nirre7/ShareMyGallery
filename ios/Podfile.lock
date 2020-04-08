@@ -237,7 +237,7 @@ PODS:
     - React
   - RNScreens (2.4.0):
     - React
-  - RNShare (3.1.2):
+  - RNShare (3.2.0):
     - React
   - RNVectorIcons (6.6.0):
     - React
@@ -401,7 +401,7 @@ SPEC CHECKSUMS:
   RNLocalize: 215c419a17d7585eb7a63c748ebfd042e0cb2c3d
   RNPermissions: 1008d3511fee0e25739cf81c4af0d1b2248f1053
   RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
-  RNShare: c19dbe4a7224098cd3cfc4d3b92c886ca817b3f0
+  RNShare: 13f1b72aab353c3092b30dce99d212871bb2a8a1
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
