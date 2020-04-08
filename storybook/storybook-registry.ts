@@ -1,3 +1,6 @@
+require("../app/components/permissions/permissions.story")
+require("../app/components/media/media.story")
+require("../app/components/share-button/share-button.story")
 require("../app/components/text/text.story")
 require("../app/components/button/button.story")
 require("../app/components/form-row/form-row.story")
