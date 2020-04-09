@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite"
 import { FlatList, SafeAreaView } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
-import { Media, Permissions, ShareButton } from "../components"
+import { Hermes, Media, Permissions, ShareButton } from "../components"
 import CameraRoll, { PhotoIdentifier } from "@react-native-community/cameraroll"
 
 export interface GalleryShareScreenProps {
@@ -49,6 +49,7 @@ export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps
           />)}
         extraData={selectedMedia}
       />
+      <Hermes/>
       <ShareButton selectedMedia={selectedMedia}/>
     </SafeAreaView>
   )
