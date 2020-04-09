@@ -26,7 +26,7 @@ export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps
       first: 1000,
       assetType: "All",
       groupTypes: "All",
-      // groupName: "Camera",
+      groupName: "Camera",
     })
       .then((media) => {
         setMedia(media.edges)
