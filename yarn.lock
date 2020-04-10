@@ -11029,6 +11029,11 @@ react-native-gesture-handler@^1.5.0:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-image-resizer@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-resizer/-/react-native-image-resizer-1.2.1.tgz#3dd706576f49f4f62efab8bc0e6498927068d621"
+  integrity sha512-2H+mTCsFKUufy83u1vJKff6Wj3T6FQTo2vvdQuxD9XHai5ZcHO2oCMkFhQm8EhNd2Pc1ongrqs9i1OP/En/p3A==
+
 react-native-keychain@5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/react-native-keychain/-/react-native-keychain-5.0.1.tgz#2751de436f017c87b8aabb32533bee88657d643e"
