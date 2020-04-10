@@ -14,17 +14,19 @@ export interface GalleryShareScreenProps {
 export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps> = observer((props) => {
 
   const [media, setMedia] = useState<PhotoIdentifier[]>([])
-  const [selectedMedia, setSelectedMedia] = useState(new Map<string, boolean>())
-  const onSelect = useCallback(id => {
+  const [selectedMedia, setSelectedMedia] = useState(new Map<string, [boolean, PhotoIdentifier]>())
+  const onSelect = useCallback((photoIdentifier: PhotoIdentifier) => {
     const newSelected = new Map(selectedMedia)
-    newSelected.set(id, !selectedMedia.get(id))
+    const uri = photoIdentifier.node.image.uri
+    newSelected.set(uri, [selectedMedia.has(uri) ? !selectedMedia.get(uri)[0] : true, photoIdentifier])
     setSelectedMedia(newSelected)
+    console.tron.debug(newSelected)
   }, [selectedMedia])
 
   useEffect(() => {
     CameraRoll.getPhotos({
-      first: 1000,
-      assetType: "All",
+      first: 2000,
+      assetType: "Photos",
       groupTypes: "All",
       groupName: "Camera",
     })
@@ -45,7 +47,7 @@ export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps
           <Media
             item={item}
             onSelect={onSelect}
-            selected={!!selectedMedia.get(item.node.image.uri)}
+            selected={selectedMedia.has(item.node.image.uri) ? !!selectedMedia.get(item.node.image.uri)[0] : false}
           />)}
         extraData={selectedMedia}
       />

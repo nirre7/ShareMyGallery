@@ -16,7 +16,7 @@ export const Media: React.FunctionComponent<MediaProps> = props => {
 
   return useObserver(() => (
     <TouchableWithoutFeedback
-      onPress={() => onSelect(item.node.image.uri)}>
+      onPress={() => onSelect(item)}>
 
       <Image
         style={[styles.PHOTO, { opacity: selected ? 0.5 : 1 }]}
