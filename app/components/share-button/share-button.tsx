@@ -5,24 +5,23 @@ import { shareButtonStyles as styles } from "./share-button.styles"
 import { Button } from "react-native-elements"
 import Share from "react-native-share"
 import { translate } from "../../i18n"
-import ImageResizer from 'react-native-image-resizer'
-import { PhotoIdentifier } from "@react-native-community/cameraroll"
+import ImageResizer from "react-native-image-resizer"
+import { SelectedMediaStore } from "../../models/selected-media-store"
+import { useStores } from "../../models/root-store"
 
 export interface ShareButtonProps {
-  selectedMedia: Map<string, [boolean, PhotoIdentifier]>
 }
 
 export const ShareButton: React.FunctionComponent<ShareButtonProps> = props => {
-  const { selectedMedia } = props
+  const { selectedMediaStore }: { selectedMediaStore: SelectedMediaStore; } = useStores()
+  const { selectedMedia } = selectedMediaStore
 
   const openShare = () => {
     const urls = []
     const promises = []
     selectedMedia.forEach((value, key, map) => {
-      if (value[0]) {
-        const photoIdentifier = value[1]
-
-        promises.push(ImageResizer.createResizedImage(photoIdentifier.node.image.uri, photoIdentifier.node.image.width, photoIdentifier.node.image.height, 'JPEG', 70)
+      if (value.selected) {
+        promises.push(ImageResizer.createResizedImage(value.uri, value.width, value.height, 'JPEG', 70)
           .then(resp => {
             urls.push(resp.uri)
             __DEV__ && console.tron.debug(resp)

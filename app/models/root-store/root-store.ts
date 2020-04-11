@@ -1,3 +1,4 @@
+import { SelectedMediaStoreModel } from "../selected-media-store"
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
 
 /**
@@ -5,7 +6,7 @@ import { Instance, SnapshotOut, types } from "mobx-state-tree"
  */
 // prettier-ignore
 export const RootStoreModel = types.model("RootStore").props({
-
+  selectedMediaStore: types.optional(SelectedMediaStoreModel, {}),
 })
 
 /**
