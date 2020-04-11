@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useCallback, useEffect, useState } from "react"
 import { observer } from "mobx-react-lite"
-import { FlatList, SafeAreaView } from "react-native"
+import { FlatList, SafeAreaView, ViewStyle } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { Hermes, Media, Permissions, ShareButton } from "../components"
@@ -9,6 +9,10 @@ import CameraRoll, { PhotoIdentifier } from "@react-native-community/cameraroll"
 
 export interface GalleryShareScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
+}
+
+const WRAPPER: ViewStyle = {
+  flex: 1
 }
 
 export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps> = observer((props) => {
@@ -20,7 +24,7 @@ export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps
     const uri = photoIdentifier.node.image.uri
     newSelected.set(uri, [selectedMedia.has(uri) ? !selectedMedia.get(uri)[0] : true, photoIdentifier])
     setSelectedMedia(newSelected)
-    console.tron.debug(newSelected)
+    __DEV__ && console.tron.debug(newSelected)
   }, [selectedMedia])
 
   useEffect(() => {
@@ -32,12 +36,12 @@ export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps
     })
       .then((media) => {
         setMedia(media.edges)
-        console.tron.debug(`Fetched ${media.edges.length} photos`)
+        __DEV__ && console.tron.debug(`Fetched ${media.edges.length} photos`)
       })
   }, [])
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={WRAPPER}>
       <Permissions/>
       <FlatList
         data={media}

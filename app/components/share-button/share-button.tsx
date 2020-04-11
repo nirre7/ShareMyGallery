@@ -25,7 +25,7 @@ export const ShareButton: React.FunctionComponent<ShareButtonProps> = props => {
         promises.push(ImageResizer.createResizedImage(photoIdentifier.node.image.uri, photoIdentifier.node.image.width, photoIdentifier.node.image.height, 'JPEG', 70)
           .then(resp => {
             urls.push(resp.uri)
-            console.tron.debug(resp)
+            __DEV__ && console.tron.debug(resp)
           })
         )
       }
@@ -37,7 +37,7 @@ export const ShareButton: React.FunctionComponent<ShareButtonProps> = props => {
         failOnCancel: false,
         urls: urls,
         social: Share.Social.EMAIL,
-      }).catch((error) => console.tron.warn(error))
+      }).catch((error) => __DEV__ && console.tron.warn(error))
     })
   }
 
