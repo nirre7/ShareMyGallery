@@ -6,7 +6,7 @@ export const mediaStyles = {
   } as ViewStyle,
 
   PHOTO: {
-    width: "33%",
+    width: "33.33%",
     height: 150,
   } as ImageStyle,
 }
