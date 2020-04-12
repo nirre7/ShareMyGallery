@@ -43,7 +43,9 @@ export const ShareButton: React.FunctionComponent<ShareButtonProps> = props => {
   return useObserver(() => (
     <View style={styles.WRAPPER}>
       <Button
+        buttonStyle={styles.BUTTON}
         onPress={openShare}
+        raised
         title={translate("shareButton.share")}
       />
     </View>

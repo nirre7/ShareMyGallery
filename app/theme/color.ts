@@ -23,7 +23,7 @@ export const color = {
   /**
    * The screen background.
    */
-  background: palette.white,
+  background: palette.accent1,
   /**
    * The main tinting color.
    */
@@ -61,4 +61,6 @@ export const color = {
    * white background
    */
   storybookTextColor: palette.black,
+
+  button: palette.secondary
 }
