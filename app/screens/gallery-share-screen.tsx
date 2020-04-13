@@ -10,6 +10,7 @@ import { SelectedMediaStore } from "../models/selected-media-store"
 import { useStores } from "../models/root-store"
 import { getSnapshot } from "mobx-state-tree"
 import { galleryShareStyles as styles } from "./gallery-share-screen.styles"
+import { Button, Header, Icon } from "react-native-elements"
 
 export interface GalleryShareScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
@@ -18,8 +19,7 @@ export interface GalleryShareScreenProps {
 export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps> = observer((props) => {
   const [media, setMedia] = useState<PhotoIdentifier[]>([])
   const { selectedMediaStore }: { selectedMediaStore: SelectedMediaStore; } = useStores()
-
-  useEffect(() => {
+  const getMedia = () => {
     CameraRoll.getPhotos({
       first: 2000,
       assetType: "Photos",
@@ -30,12 +30,45 @@ export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps
         setMedia(media.edges)
         __DEV__ && console.tron.debug(`Fetched ${media.edges.length} photos`)
       })
+  }
+
+  useEffect(() => {
+    getMedia()
   }, [])
 
   return (
     <View style={styles.WRAPPER}>
       <Permissions/>
+      <View style={styles.HEADER_WRAPPER}>
+        <Header
+          containerStyle={styles.HEADER}
+          leftComponent={
+            <Button
+              buttonStyle={styles.BUTTON}
+              icon={
+                <Icon
+                  name="menu"
+                  size={15}
+                  color="white"
+                />
+              }/>
+          }
+          rightComponent={
+            <Button
+              buttonStyle={styles.BUTTON}
+              icon={
+                <Icon
+                  name="settings"
+                  size={15}
+                  color="white"
+                />
+              }/>
+          }
+        />
+      </View>
       <FlatList
+        onRefresh={() => getMedia}
+        refreshing={media.length === 0}
         data={media}
         numColumns={3}
         showsVerticalScrollIndicator={false}
