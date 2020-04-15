@@ -1,6 +1,6 @@
 import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { GalleryShareScreen } from "../screens"
+import { GalleryShareScreen, SettingsScreen } from "../screens"
 import { PrimaryParamList } from "./types"
 
 const Stack = createNativeStackNavigator<PrimaryParamList>()
@@ -14,6 +14,7 @@ export function PrimaryNavigator() {
       }}
     >
       <Stack.Screen name="galleryShareScreen" component={GalleryShareScreen} />
+      <Stack.Screen name="settingsScreen" component={SettingsScreen} />
     </Stack.Navigator>
   )
 }

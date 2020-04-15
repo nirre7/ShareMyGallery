@@ -16,6 +16,9 @@
     "share": "Share",
     "shareMultipleImages": "Share multiple images"
   },
+  "settings" : {
+    "header": "Settings"
+  },
   "demoScreen": {
     "howTo": "HOW TO",
     "title": "What’s In This Stack?",

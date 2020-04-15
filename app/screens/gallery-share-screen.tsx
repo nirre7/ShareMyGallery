@@ -56,6 +56,7 @@ export const GalleryShareScreen: React.FunctionComponent<GalleryShareScreenProps
           rightComponent={
             <Button
               buttonStyle={styles.BUTTON}
+              onPress={() => props.navigation.navigate("settingsScreen")}
               icon={
                 <Icon
                   name="settings"
